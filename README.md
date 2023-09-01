@@ -11,7 +11,7 @@ Just copy and change.
 
 See [template.pdf](template.pdf) for pdf example.
 
-#License
+## License
 
 Uses BSD3, please [LICENSE](LICENSE) for licensing details.
 
