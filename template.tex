@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=1.27cm]{geometry}
+
+\usepackage{fontspec}
+\setmainfont{Montserrat}
+\newcommand{\maincolor}{cyan}
+\newcommand{\seccolor}{teal}
+
+\usepackage{ifthen}
+
+\usepackage{fancyhdr,xcolor}
+\usepackage{tikz}    
+\usetikzlibrary{calc}
+
+\fancypagestyle{mystyle}{%
+    \fancyhf{}
+    
+    \fancyhead{%
+        \begin{tikzpicture}[overlay,remember picture]
+            \fill [color=\maincolor] (current page.north east) rectangle
+                ($ (current page.north west) + (0cm,-3.5cm) $);
+        \end{tikzpicture}
+        }
+    \fancyfoot[C]{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\addtolength{\headheight}{4pt}
+
+\usepackage{sectsty}
+\sectionfont{\color{\maincolor}}
+\subsectionfont{\color{\seccolor}}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{tabularx}
+\usepackage{enumitem}
+\pagestyle{empty}
+
+\newcommand{\cventry}[2]{
+    \begin{tabularx}{\linewidth}{@{}Xr@{}}
+    #1 & #2 \\
+    \end{tabularx}
+    \vspace{-1.2em}
+}
+
+
+\newcommand{\edentry}[4]{
+    \begin{tabularx}{\linewidth}{@{}Xr@{}}
+    #1 & #2 \\
+    {\small#3} & {\small #4 }\\
+    \end{tabularx}
+    \vspace{0.2em}
+}
+
+\usepackage{lipsum}
+
+%% ---------- document begin
+
+\begin{document}
+
+\thispagestyle{mystyle}
+
+{\color{white}
+    \noindent\begin{tabularx}{\linewidth}{@{}Xr@{}}
+    {\begin{tabular}{l}
+        \textbf{\Huge{Your Name}} \\
+        \href{Location in openstreemaps}{Location} \\
+    \end{tabular} } &
+    
+    {\begin{tabular} {r}
+    \href{https://linkedin.com/in/youruser}{Linkedin/site} \\ 
+     \href{mailto:your.mail@gmail.com}{mail} \\ 
+    \href{tel:telephone}{telephone} \\
+    \end{tabular}} \\
+    \end{tabularx}}
+\vspace{1cm}\\
+{\raggedright{Intro: \lipsum[50]}
+\vspace{-0.5em}
+
+\section*{Experience}
+%-Hyper
+\subsection*{Department of the Strange and the Arcane}
+\cventry{Lead Sorceror}{Nov 1080 - Sep 2023}
+{\small\begin{itemize}[noitemsep]
+\item \lipsum[20]
+\item \lipsum[30]
+\end{itemize}}
+
+\section*{Education}
+\edentry{Graduation in Daemonic Incantations}{2009 - 2013}{Cult School of the Admonisher of Thorns}{Top 10\%}
+
+
+\section*{Main Skills}
+\vspace{-1em}
+{\def\arraystretch{2.5}\small\begin{tabularx}{\linewidth}{X|X}
+\textbf{Magick}: Incantations, Evocations, Applied Necromantics, Perl &
+\textbf{Stack}: Cauldron, Bones of the damned, Unicorn Horn\\
+\hline
+\textbf{Fighting}: Bow and Arrow, Machete, Spoon &
+\textbf{Languages}: English (proficient), Enochian (native when possessed) \\
+\end{tabularx}}
+
+\section*{Publications}
+{\small\begin{itemize}[noitemsep]
+\item Main Sorceror on “Improving Chaotic Flows from Metaphysical Singularities by the use of Daemonic Catalysts”, O. Minus, K.R. Drakat, International Conference on Metaphysical Singularities, 1123
+\end{itemize}
+}
+
+\end{document}
